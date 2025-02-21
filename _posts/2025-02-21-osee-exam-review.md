@@ -1,31 +1,33 @@
 ---
 layout: post
 title: OSEE Course and Exam Review
-subtitle:
+subtitle: 
 cover-img: /assets/img/osee_blog_header.jpg
 thumbnail-img: /assets/img/osee_logo.webp
 share-img: /assets/img/osee_logo.webp
 tags: [OSEE, EXP-401, AWE]
-excerpt:
+excerpt: Many blogs detail the path to achieving OSEE certification. Do we need another? Maybe not. Yet, after completing my exam, I felt that many of these reviews painted an unnecessarily intimidating picture.
 ---
 
 ## Introduction
 
 Many blogs detail the path to achieving OSEE certification. Do we need another? Maybe not. Yet, after completing my exam, I felt that many of these reviews painted an unnecessarily intimidating picture.
 
-This blog aims to reassure future students: OSEE is absolutely attainable. The hardest part? Convincing your CTO to approve the extortionate training fee!
+This blog aims to reassure future students: OSEE is absolutely attainable. The hardest part? Convincing your CTO to approve the extortionate training fee.
 
 ## The Course
 
-The OSEE course is often considered the most challenging offensive security training available. This reputation can make students doubt if they can keep up with the instructor, let alone even think about passing the exam.
+The OSEE course is often considered the most challenging offensive security training available. This reputation can make students doubt if they'll even be able to keep up with the instructor, let alone even think about passing the exam.
 
-However, despite its technical depth, the teaching is outstanding. I particularly appreciated the instructor's approach of building each exploit from scratch, explaining their thought process along the way. Every step is detailed in the accompanying book, and questions are always welcome — the instructors enjoy taking on tangents sparked by student questions. This step-by-step structure makes the book an invaluable resource for future reference.
+However, despite its technical depth, the teaching is outstanding. I particularly appreciated the instructor's approach of building each exploit from scratch, explaining their thought process along the way. Every step is detailed in the accompanying book, and questions are always welcome — the instructors seemed to enjoy talking on tangents sparked by student questions. This step-by-step structure makes the book an invaluable resource for future reference and exam preparation.
 
-The vulnerabilities covered were once real-world issues. While they aren’t especially complex (given the need to write a full exploit in a day), they serve as excellent examples and give students hands-on experience with incredibly important attack surfaces.
+The vulnerabilities covered were once real-world issues. While they aren’t especially complex (given the need to write a full exploit in a day), they serve as excellent examples and give students hands-on experience and exposure to incredibly important attack surfaces.
 
 If you have experience with Windows security research and are comfortable with a debugger, you’ll be fine! Familiarity with DEP/ASLR and ROP are probably the only real prerequisites.
 
 I particularly enjoyed the Extra Mile challenges that allowed students to complete additional tasks in the evenings. The challenge coin reward is a nice touch and definitely helped to solidify that day's learning. They take a few hours each.
+
+![OSEE Challenge Coin](/assets/img/osee_coin.jpeg)
 
 ## The Exam
 
@@ -35,9 +37,9 @@ It's made very clear by the [OSEE Exam Report template](https://www.offsec.com/a
 
 #### Browser
 
-I spent a very long time implementing all the concepts covered in the course in the form of a Browser Exploitation Framework. The idea was that I could then swap in and practice other techniques, such as a different method of calling WINAPIs or a different sandbox escape. I learned lots writing it and it proved incredibly useful for the final exam as I was very comfortable with bypassing all mitigations in a few different ways.
+I spent a very long time implementing all the concepts covered in the course in the form of a Browser Exploitation Framework. The idea was that I could then swap in and practice other techniques, such as a different method of calling WINAPIs or a different sandbox escape. The skills I practiced and the techniques I learned proved incredibly useful for the final exam as I was very comfortable with bypassing all mitigations in a few different ways.
 
-The framework is on [GitHub](https://github.com/ntdelta/chakra-exploit-framework) if you fancy taking a look. I'd say I relied more on [Connor Mcgarr's blogs](https://connormcgarr.github.io/type-confusion-part-2/) than the AWE book as I felt the explanations were better (and I hate carrying an 800 page book around with me). When preparing, I'd recommend focusing on becoming comfortable taking a goal, such as 'implement the leafInterpreterFrame CFG bypass', yourself with limited reliance on online tutorials. It is easy to become reliant on turning to the next page to copy out the next step of the exploit. If you just do this, you will not be able to pass the exam.
+The framework is on [GitHub](https://github.com/ntdelta/chakra-exploit-framework) if you fancy taking a look. I'd say I relied more on [Connor Mcgarr's blogs](https://connormcgarr.github.io/type-confusion-part-2/) than the AWE book as I felt the explanations were better (and I hate carrying an 800 page book around with me). When preparing, I'd recommend focusing on becoming comfortable completing a goal, such as 'implement the leafInterpreterFrame CFG bypass', yourself with limited reliance on online tutorials. It is easy to become reliant on turning to the next page to copy out the next step of the exploit. If you just do this, you will not be able to pass the exam.
 
 The Extra Miles are also worth doing, especially the initial RCE for the other Type Confusion CVEs. Not just because they'll help with the exam, but because they will make you a much better exploit developer - thats why we signed up to the course after all!
 
@@ -126,7 +128,7 @@ I also recommend completing the `6.7.3.2` Extra Mile.
 Day 1:
 ```
 06:00 Exam Start.
-12:30 Flag 1 submitted. Start lunch.
+12:30 1st flag submitted. Start lunch.
 13:30 Resume. Start 2nd question.
 22:00 Sleep.
 ```
@@ -135,7 +137,7 @@ Day 2:
 ```
 09:30 Resume.
 14:00 Submit 2nd flag.
-17:00 Submit Report. End Exam.
+17:00 Submit report. End exam.
 ```
 
 ### Exam Review
@@ -144,13 +146,16 @@ Overall, the exam was far easier than I was expecting. The challenges were all s
 
 It's really hard to say anything more than that. Just know that if you've completed the Extra Miles, and feel very confident in WinDbg, you'll do great.
 
+I only had to wait around two days to get my results:
+![OSEE Email](/assets/img/result.png)
+
 ### Infrastructure Tip
 
 The VPN requires you to connect from Kali. This was annoying as RDP to VM->RDP to Exam Box is a gross workflow. So, I set up a Kali VM on my host and connected to the OffSec VPN from the VM. I then used the `-D` SOCKS forwarder and the conventional `-L:1337:...:3389` port forwarding flags to SSH into the VM from my host. This meant I could RDP to the OffSec VM directly from my host using `127.0.0.1:1337`. It was a much nicer workflow, would highly recommend.
 
 ## Conclusion
 
-To conclude, I feel the AWE course is perfect for people who are fresh off of OSED and are looking for their next challenge. It is also great for people who do security research, maybe malware analysis, and are looking to see into the world of "proper" exploit development.
+To conclude, I feel the AWE course is perfect for people who are fresh off of OSED and are looking for their next challenge. It is also great for people who do security research, maybe malware analysis, and are looking to see into the world of "proper" exploit development. If you already do Vulnerability Research or Exploit Development as a full-time job, I don't think the course will provide much value.
 
 The teaching is great and the course is well thought out. Despite this, I do not think it is worth the price tag. Resources such as Connor's blogs, OffByOne's streams, and ol' reliable Unknown Cheats, are all free and cover most of the content. I think it is a shame they do not offer a "learn at your own pace" OSED style subscription at a more affordable price point.
 
